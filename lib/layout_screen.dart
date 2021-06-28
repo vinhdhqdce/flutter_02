@@ -22,6 +22,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     return Container(
       color: Colors.yellow,
       width: double.infinity,
+      height: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

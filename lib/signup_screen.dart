@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'Utils.dart';
+import 'components.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -40,6 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget buildBody() {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () {
         // Sự kiện click ra ngoài thì ẩn bàn phím
         hideKeyboard();
@@ -78,7 +80,8 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               height: 12,
             ),
-            myTextField(
+            inputTextField(
+              context: context,
               keyboardType: TextInputType.text,
               hintText: 'Enter your full name',
               inputBorder: Color(0xFFEEEEEE),
@@ -98,7 +101,8 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               height: 12,
             ),
-            myTextField(
+            inputTextField(
+              context: context,
               keyboardType: TextInputType.emailAddress,
               hintText: 'Enter your email address',
               inputBorder: Color(0xFFEEEEEE),
@@ -118,7 +122,8 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               height: 12,
             ),
-            myTextField(
+            inputTextField(
+              context: context,
               keyboardType: TextInputType.text,
               obscureText: true,
               hintText: 'Enter your password',
@@ -146,52 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Widget myTextField({
-    TextEditingController? controller,
-    required TextInputType keyboardType,
-    bool obscureText = false,
-    String? hintText,
-    IconData? suffixIcon,
-    inputBorder,
-    VoidCallback? onTapSuffixIcon,
-  }) {
-    return Container(
-      height: 65,
-      child: TextField(
-        controller: controller,
-        autocorrect: false,
-        keyboardType: keyboardType,
-        textCapitalization: TextCapitalization.words,
-        inputFormatters: [LengthLimitingTextInputFormatter(100)],
-        style: TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w500,
-        ),
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          hintText: hintText,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(const Radius.circular(10.0)),
-            borderSide: BorderSide(color: inputBorder),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(const Radius.circular(10.0)),
-            borderSide: BorderSide(color: Theme.of(context).primaryColor),
-          ),
-          suffixIcon: suffixIcon != null
-              ? GestureDetector(
-                  onTap: () {
-                    if (onTapSuffixIcon != null) {
-                      onTapSuffixIcon();
-                    }
-                  },
-                  child: Icon(suffixIcon),
-                )
-              : null,
-        ),
-      ),
-    );
-  }
+
 
   Widget signUpButton() {
     return Center(
