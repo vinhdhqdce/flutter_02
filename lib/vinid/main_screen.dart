@@ -84,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
               hintText: 'Bạn đang muốn tìm',
               prefixIcon: Icons.search,
               inputBorder: Color(0xFFEEEEEE),
-              radiusBox: 22,
+              radiusBox: 24,
               fillColor: Colors.white,
             ),
           ),
@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 22,
+            radius: 24,
             child: Icon(Icons.card_giftcard),
           ),
         ],
