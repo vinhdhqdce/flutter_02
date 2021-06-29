@@ -85,6 +85,7 @@ class _MainScreenState extends State<MainScreen> {
               prefixIcon: Icons.search,
               inputBorder: Color(0xFFEEEEEE),
               radiusBox: 24,
+              heightBox: 48,
               fillColor: Colors.white,
             ),
           ),

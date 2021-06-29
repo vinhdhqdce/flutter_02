@@ -50,10 +50,11 @@ Widget inputTextField({
   required inputBorder,
   VoidCallback? onTapSuffixIcon,
   double radiusBox = 10,
+  double heightBox = 20,
   Color? fillColor,
 }) {
   return Container(
-    height: radiusBox*2,
+    height: heightBox,
     decoration: BoxDecoration(
         color: fillColor,
         borderRadius: BorderRadius.circular(radiusBox)),
