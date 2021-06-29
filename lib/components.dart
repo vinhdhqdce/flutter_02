@@ -50,7 +50,7 @@ Widget inputTextField({
   required inputBorder,
   VoidCallback? onTapSuffixIcon,
   double radiusBox = 10,
-  double heightBox = 20,
+  double heightBox = 48,
   Color? fillColor,
 }) {
   return Container(
@@ -71,6 +71,7 @@ Widget inputTextField({
       ),
       obscureText: obscureText,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(heightBox / 2), //Huy cmt
         fillColor: Colors.white,
         hintText: hintText,
         // alignLabelWithHint: true,

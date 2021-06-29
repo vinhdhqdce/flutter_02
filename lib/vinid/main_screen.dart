@@ -211,14 +211,14 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget buildServices() {
     final listServices = [
-      ['Voucher', 'ic_service_voucher.png'],
-      ['Vinhomes', 'ic_service_my_house.png'],
-      ['Săn thưởng', 'ic_service_game.png'],
-      ['Tiện ích', 'ic_service_utility_payment.png'],
-      ['VinMart', 'ic_function_vinmart.png'],
-      ['Đi chợ', 'ic_function_maket.png'],
-      ['Cộng đồng', 'ic_function_food.png'],
-      ['Techcombank Rewards', 'ic_function_tech.png'],
+      ['Voucher', 'ic_service_voucher.png',false],
+      ['Vinhomes', 'ic_service_my_house.png',false],
+      ['Săn thưởng', 'ic_service_game.png',false],
+      ['Tiện ích', 'ic_service_utility_payment.png',false],
+      ['VinMart', 'ic_function_vinmart.png',false],
+      ['Đi chợ', 'ic_function_maket.png',false],
+      ['Cộng đồng', 'ic_function_food.png',false],
+      ['Techcombank Rewards', 'ic_function_tech.png',true],
     ];
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -238,23 +238,34 @@ class _MainScreenState extends State<MainScreen> {
   Widget buildServiceItemFromList({required listServices, required int index}) {
     var serviceConfig = listServices[index];
     return buildServiceItem(
-        title: serviceConfig[0], imageAsset: serviceConfig[1]);
+        title: serviceConfig[0], imageAsset: serviceConfig[1], isHot: serviceConfig[2]);
   }
 
-  Widget buildServiceItem({required String imageAsset, required String title}) {
+  Widget buildServiceItem({required String imageAsset, required String title, bool isHot = false}) {
     return
-        // Stack(
-        //   children: [
-        // Positioned(
-        //   child:
+
         Container(
       child: Column(
         children: [
-          Image.asset(
-            'assets/' + imageAsset,
-            height: 48,
-            width: 48,
+          Stack(
+            children: [
+              Image.asset(
+              'assets/' + imageAsset,
+              height: 48,
+              width: 48,
+            ),
+              if(isHot) Positioned(
+                top: 0,
+                right: 0,
+                child: Image.asset(
+                  'assets/ic_function_hot.png',
+                  height: 20,
+                  width: 20,
+                ),
+              )
+          ]
           ),
+
           SizedBox(
             height: 4,
           ),
@@ -266,17 +277,6 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
     );
-    // ),
-    /*Positioned(
-        top: 0,
-        right: 0,
-        child: Image.asset(
-          'assets/ic_function_hot.png',
-          height: 8,
-          width: 8,
-        ),
-      )*/
-    // ]);
   }
 
   Widget buildViewAllServices() {
