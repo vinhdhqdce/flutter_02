@@ -44,7 +44,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
             children: [
               //Expanded: Còn khoảng không thì sẽ chiếm hết
               // Expanded(child: Text("CA BỆNH BN13550-BN13551, BN13553 tại tỉnh Vĩnh Long. Ngày 20/6, các bệnh nhân từ Indonesia nhập cảnh sân bay Cần Thơ trên chuyến bay VJ2561 và được cách ly ngay sau khi nhập cảnh tại tỉnh Vĩnh Long. Kết quả xét nghiệm lần thứ nhất ngày 21/6 dương tính với SARS-CoV-2. ")),
-              //Flexible: đến giới hạn thì sẽ xuống dòng
+              //F lexible: đến giới hạn thì sẽ xuống dòng
               Flexible(child: Text("CA BỆNH BN13550-BN13551, BN13553 tại tỉnh Vĩnh Long. Ngày 20/6, các bệnh nhân từ Indonesia nhập cảnh sân bay Cần Thơ trên chuyến bay VJ2561 và được cách ly ngay sau khi nhập cảnh tại tỉnh Vĩnh Long. Kết quả xét nghiệm lần thứ nhất ngày 21/6 dương tính với SARS-CoV-2. "))
             ],
           ),

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:demo_vin_id/components.dart';
 import 'package:flutter/material.dart';
 
@@ -43,33 +41,32 @@ class _MainScreenState extends State<MainScreen> {
                 Colors.white,
               ],
             )),
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-          child: Column(
-            children: [
-              buildSearchBox(),
-              SizedBox(
-                height: 16,
-              ),
-              buildAd(),
-              buildProfile(),
-              SizedBox(
-                height: 16,
-              ),
-              buildServices(),
-              SizedBox(
-                height: 16,
-              ),
-              buildViewAllServices(),
-              SizedBox(
-                height: 16,
-              ),
-              buildHeaderAdGrid(),
-              SizedBox(
-                height: 16,
-              ),
-              buildGridAd(),
-            ],
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            child: Column(
+              children: [
+                buildSearchBox(),
+                SizedBox(
+                  height: 16,
+                ),
+                buildAd(),
+                buildProfile(),
+                SizedBox(
+                  height: 16,
+                ),
+                buildServices(),
+                SizedBox(
+                  height: 16,
+                ),
+                buildViewAllServices(),
+                SizedBox(
+                  height: 16,
+                ),
+                buildHeaderAdGrid(),
+                buildGridAd(),
+              ],
+            ),
           ),
         ),
       ),
@@ -87,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
               hintText: 'Bạn đang muốn tìm',
               prefixIcon: Icons.search,
               inputBorder: Color(0xFFEEEEEE),
-              radiusBox: 25,
+              radiusBox: 22,
               fillColor: Colors.white,
             ),
           ),
@@ -96,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 25,
+            radius: 22,
             child: Icon(Icons.card_giftcard),
           ),
         ],
@@ -233,6 +230,7 @@ class _MainScreenState extends State<MainScreen> {
           buildServiceItemFromList(listServices: listServices, index: index),
       itemCount: 8,
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
     );
   }
 
@@ -311,7 +309,7 @@ class _MainScreenState extends State<MainScreen> {
         Text(
           "Đừng bỏ lỡ",
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),
         ),
       ],
     );
@@ -371,6 +369,7 @@ class _MainScreenState extends State<MainScreen> {
           buildAdItemFromList(listAds: listAds, index: index),
       itemCount: 8,
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
     );
   }
 

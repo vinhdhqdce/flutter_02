@@ -53,23 +53,26 @@ Widget inputTextField({
   Color? fillColor,
 }) {
   return Container(
+    height: radiusBox*2,
     decoration: BoxDecoration(
         color: fillColor,
         borderRadius: BorderRadius.circular(radiusBox)),
     child: TextField(
+      textAlign: TextAlign.start,
       controller: controller,
       autocorrect: false,
       keyboardType: keyboardType,
       textCapitalization: TextCapitalization.words,
       inputFormatters: [LengthLimitingTextInputFormatter(100)],
       style: TextStyle(
-        fontSize: 17,
+        fontSize: 12,
         fontWeight: FontWeight.w500,
       ),
       obscureText: obscureText,
       decoration: InputDecoration(
         fillColor: Colors.white,
         hintText: hintText,
+        // alignLabelWithHint: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radiusBox)),
           borderSide: BorderSide(color: inputBorder),
