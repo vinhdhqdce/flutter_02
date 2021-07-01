@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'Utils.dart';
+import 'Utils/Utils.dart';
 
 class Demo2Screen extends StatefulWidget {
   final String title;

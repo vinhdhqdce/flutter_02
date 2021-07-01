@@ -1,13 +1,15 @@
-import 'package:demo_vin_id/demo_screen.dart';
-import 'package:demo_vin_id/layout_screen.dart';
-import 'package:demo_vin_id/signup_screen.dart';
-import 'package:demo_vin_id/vinid/main_screen.dart';
-import 'package:demo_vin_id/vinid/profile_screen.dart';
+import 'demo_screen.dart';
+import 'layout_screen.dart';
+import 'signup_screen.dart';
+import 'vinid/main_screen.dart';
+import 'vinid/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'grid_screen.dart';
+import 'tabbar/tabbar_demo.dart';
 import 'vinid/inbox_screen.dart';
 import 'list_screen.dart';
+import 'vinid/vinid_app.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,7 +42,9 @@ class MyApp extends StatelessWidget {
       // home: GridScreen(),
       // home: InboxScreen(),
       // home: ProfileScreen(),
-      home: MainScreen(),
+      // home: MainScreen(),
+      home: VinIDApp(),
+      // home: TabBarDemo(),
       // home: SignupScreen(),
     );
   }

@@ -1,7 +1,9 @@
-import 'package:demo_vin_id/components.dart';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-import '../Utils.dart';
+import '../Utils/Utils.dart';
+import '../Utils/components.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -78,7 +80,17 @@ class _MainScreenState extends State<MainScreen> {
       child: Row(
         children: [
           Expanded(
-            child: inputTextField(
+            child: AnimatedTextKit(
+              pause: Duration(milliseconds: 300),
+              repeatForever: true,
+              animatedTexts: [
+                RotateAnimatedText('Bạn đang muốn tìm...'),
+                RotateAnimatedText('Nạp điểm'),
+                RotateAnimatedText('Ưu đãi, giảm giá'),
+                // RotateAnimatedText('Phúc Long, Tocotoco'),
+              ],
+            ),
+            /*child: inputTextField(
               context: context,
               keyboardType: TextInputType.text,
               hintText: 'Bạn đang muốn tìm',
@@ -87,7 +99,7 @@ class _MainScreenState extends State<MainScreen> {
               radiusBox: 24,
               heightBox: 48,
               fillColor: Colors.white,
-            ),
+            ),*/
           ),
           SizedBox(
             width: 16,

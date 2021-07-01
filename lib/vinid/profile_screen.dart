@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../components.dart';
+import '../Utils/components.dart';
+import 'inbox_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -103,14 +104,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(
+      drawer: InboxScreen(),
+      appBar: AppBar(title: Text('Tài khoản')),
+      /*appBar: buildAppBar(
           context: context,
           title: 'Tài khoản',
           isBack: false,
           elevation: 1,
           titleTextStyle: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          backGroundColor: Colors.white),
+          backGroundColor: Colors.white),*/
       body: buildBody(),
     );
   }

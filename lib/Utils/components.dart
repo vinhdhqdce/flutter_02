@@ -71,7 +71,7 @@ Widget inputTextField({
       ),
       obscureText: obscureText,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(heightBox / 2), //Huy cmt
+        contentPadding: EdgeInsets.symmetric(vertical: 0,horizontal: heightBox/2), //Huy cmt
         fillColor: Colors.white,
         hintText: hintText,
         // alignLabelWithHint: true,
