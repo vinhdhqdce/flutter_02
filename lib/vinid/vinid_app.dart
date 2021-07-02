@@ -92,6 +92,47 @@ class _VinIDAppState extends State<VinIDApp>
     return Scaffold(
       body: buildBody(),
       bottomNavigationBar: buildTabBar(),
+      floatingActionButton: InkWell(
+        onTap: (){
+          DateTime dateTime = DateTime.now();
+
+          showCupertinoModalPopup(
+            context: context,
+            builder: (BuildContext context) {
+              return buildDatePicker(CupertinoDatePicker(
+                mode: CupertinoDatePickerMode.dateAndTime,
+                use24hFormat: true,
+                initialDateTime: dateTime,
+                onDateTimeChanged: (DateTime value) {
+                  if (mounted) {
+                    print('Selected date: ${value.toLocal().toString()}');
+                    setState(() {
+                      dateTime = value;
+                    });
+                  }
+                },
+              ));
+            },
+          );
+
+        },
+        child: Container(
+          padding: const EdgeInsets.only(top: 52),
+          child: Container(
+            height: 40,
+            width: 40,
+            child: Icon(
+              Icons.qr_code_scanner,
+              color: Colors.white,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.all(Radius.circular(12))),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+      FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 
@@ -140,27 +181,6 @@ class _VinIDAppState extends State<VinIDApp>
             print('confirm input dialog user: $user and pass: $pass');
           });
           
-        }else if(index ==2){
-          DateTime dateTime = DateTime.now();
-
-          showCupertinoModalPopup(
-            context: context,
-            builder: (BuildContext context) {
-              return buildDatePicker(CupertinoDatePicker(
-                mode: CupertinoDatePickerMode.dateAndTime,
-                use24hFormat: true,
-                initialDateTime: dateTime,
-                onDateTimeChanged: (DateTime value) {
-                  if (mounted) {
-                    print('Selected date: ${value.toLocal().toString()}');
-                    setState(() {
-                      dateTime = value;
-                    });
-                  }
-                },
-              ));
-            },
-          );
         }else
         if (index != currentTabIndex){
           setState(() {

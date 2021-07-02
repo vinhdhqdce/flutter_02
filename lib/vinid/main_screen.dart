@@ -75,21 +75,40 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget buildSearchBox() {
-    return Container(
-      child: Row(
-        children: [
-          Expanded(
-            child: AnimatedTextKit(
+  Widget buildSearch() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        height: 48,
+        color: Colors.white,
+        child: Row(
+          children: [
+            Icon(Icons.search),
+            const SizedBox(width: 16),
+            AnimatedTextKit(
               pause: Duration(milliseconds: 300),
               repeatForever: true,
               animatedTexts: [
                 RotateAnimatedText('Bạn đang muốn tìm...'),
                 RotateAnimatedText('Nạp điểm'),
                 RotateAnimatedText('Ưu đãi, giảm giá'),
-                // RotateAnimatedText('Phúc Long, Tocotoco'),
+                RotateAnimatedText('Phúc Long, Tocotoco'),
               ],
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildSearchBox() {
+    return Container(
+      child: Row(
+        children: [
+          Expanded(
+            child: buildSearch()
+            ,
             /*child: inputTextField(
               context: context,
               keyboardType: TextInputType.text,
